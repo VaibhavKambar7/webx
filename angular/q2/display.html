@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="studentManagementSystem">
+<head>
+    <title>Display Data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="studentController">
+    <h1>Display Data</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Mobile Number</th>
+                <th>Class</th>
+                <th>Division</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="student in students">
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.address}}</td>
+                <td>{{student.mobileNo}}</td>
+                <td>{{student.class}}</td>
+                <td>{{student.division}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
+
+<script>
+    // Define the studentManagementSystem module
+    var app = angular.module('studentManagementSystem', []);
+
+    // Define the studentController controller
+    app.controller('studentController', function($scope) {
+        $scope.students = [];
+
+        $scope.addStudent = function() {
+            $scope.students.push({
+                firstName: $scope.newStudent.firstName,
+                lastName: $scope.newStudent.lastName,
+                address: $scope.newStudent.address,
+                mobileNo: $scope.newStudent.mobileNo,
+                class: $scope.newStudent.class,
+                division: $scope.newStudent.division
+            });
+
+            $scope.newStudent.firstName = '';
+            $scope.newStudent.lastName = '';
+            $scope.newStudent.address = '';
+            $scope.newStudent.mobileNo = '';
+            $scope.newStudent.class = '';
+            $scope.newStudent.division = '';
+        };
+    });
+</script>

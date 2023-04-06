@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="studentManagementSystem">
+  <head>
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="studentController">
+    <h1>Student Management System</h1>
+
+    <!-- form to capture data -->
+    <form>
+      <label>First Name:</label>
+      <input
+        type="text"
+        ng-model="newStudent.firstName"
+        required
+        ng-pattern="/^[a-zA-Z]+$/"
+      />
+      <br />
+      <label>Last Name:</label>
+      <input
+        type="text"
+        ng-model="newStudent.lastName"
+        required
+        ng-pattern="/^[a-zA-Z]+$/"
+      />
+      <br />
+      <label>Address:</label>
+      <input type="text" ng-model="newStudent.address" required />
+      <br />
+      <label>Mobile Number:</label>
+      <input
+        type="tel"
+        ng-model="newStudent.mobileNo"
+        required
+        ng-pattern="/^[0-9]{10}$/"
+      />
+      <br />
+      <label>Class:</label>
+      <input type="text" ng-model="newStudent.class" required />
+      <br />
+      <label>Division:</label>
+      <input type="text" ng-model="newStudent.division" required />
+      <br />
+      <!-- <button ng-click="addStudent()">Add</button> -->
+      <button ng-click="addStudent()">Send Data</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
