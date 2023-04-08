@@ -1,52 +1,61 @@
 <!DOCTYPE html>
-<html ng-app="studentManagementSystem">
-  <head>
+<html ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
     <title>Student Management System</title>
-    <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-controller="studentController">
+  <body ng-controller="StudentController">
     <h1>Student Management System</h1>
-
-    <!-- form to capture data -->
-    <form>
-      <label>First Name:</label>
-      <input
-        type="text"
-        ng-model="newStudent.firstName"
-        required
-        ng-pattern="/^[a-zA-Z]+$/"
-      />
-      <br />
-      <label>Last Name:</label>
-      <input
-        type="text"
-        ng-model="newStudent.lastName"
-        required
-        ng-pattern="/^[a-zA-Z]+$/"
-      />
-      <br />
-      <label>Address:</label>
-      <input type="text" ng-model="newStudent.address" required />
-      <br />
-      <label>Mobile Number:</label>
-      <input
-        type="tel"
-        ng-model="newStudent.mobileNo"
-        required
-        ng-pattern="/^[0-9]{10}$/"
-      />
-      <br />
-      <label>Class:</label>
-      <input type="text" ng-model="newStudent.class" required />
-      <br />
-      <label>Division:</label>
-      <input type="text" ng-model="newStudent.division" required />
-      <br />
-      <!-- <button ng-click="addStudent()">Add</button> -->
-      <button ng-click="addStudent()">Send Data</button>
-    </form>
-
-    <script src="script.js"></script>
-  </body>
-</html>
+    <form name="studentForm" ng-submit="addStudent()">
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" ng-model="newStudent.firstname" ng-required="true">
+        <br>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" ng-model="newStudent.lastname" ng-required="true">
+        <br>
+        <label for="address">Address:</label>
+        <input type="text" name="address" ng-model="newStudent.address" ng-required="true">
+        <br>
+        <label for="mobile">Mobile No:</label>
+        <input type="text" name="mobile" ng-model="newStudent.mobile" ng-pattern="/^[0-9]{10}$/" ng-required="true">
+        <br>
+        <label for="class">Class:</label>
+        <input type="text" name="class" ng-model="newStudent.class" ng-required="true">
+        <br>
+        <label for="division">Division:</label>
+        <input type="text" name="division" ng-model="newStudent.division" ng-required="true">
+        <br>
+        <button ng-disabled="studentForm.$invalid">Add Student</button>
+      </form>
+      <br>
+      <divider/>
+      <br>
+      <label>Search by First Name:</label>
+      <input type="text" ng-model="searchText" size="15">
+      <button ng-click="searchStudent()">Search</button>
+      <br>
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Mobile No</th>
+          <th>Class</th>
+          <th>Division</th>
+          <th>Action</th>
+        </tr>
+        <tr ng-repeat="student in students | filter: searchText">
+          <td>{{ student.firstname | uppercase }}</td>
+          <td>{{ student.lastname | uppercase }}</td>
+          <td>{{ student.address | uppercase }}</td>
+          <td>{{ student.mobile }}</td>
+          <td>{{ student.class }}</td>
+          <td>{{ student.division }}</td>
+          <td><button ng-click="deleteStudent(student)">Delete</button></td>
+        </tr>
+      </table>
+        <script src="script.js"></script>
+      </body>
+      </html>
