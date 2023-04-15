@@ -16,7 +16,7 @@ angular.module('studentApp', [])
                     division: $scope.newStudent.division.toUpperCase()
                 });
                 $scope.newStudent = {};
-                $scope.studentForm.$setPristine();
+                $scope.studentForm.$setPristine();// resets the form to its initial state.
             }
         };
 
@@ -42,34 +42,34 @@ angular.module('studentApp', [])
           };
           
 
-        $scope.resetSearch = function() {
-            $scope.searchText = '';
-            $scope.students.forEach(function(student) {
-                student.show = true;
-            });
-        };
+        // $scope.resetSearch = function() {
+        //     $scope.searchText = '';
+        //     $scope.students.forEach(function(student) {
+        //         student.show = true;
+        //     });
+        // };
 
     })
-    .directive('onlyDigits', function() {
-        return {
-            restrict: 'A',
-            require: '?ngModel',
-            link: function(scope, element, attrs, ngModelCtrl) {
-                if (!ngModelCtrl) {
-                    return;
-                }
+    // .directive('onlyDigits', function() {
+    //     return {
+    //         restrict: 'A',
+    //         require: '?ngModel',
+    //         link: function(scope, element, attrs, ngModelCtrl) {
+    //             if (!ngModelCtrl) {
+    //                 return;
+    //             }
 
-                ngModelCtrl.$parsers.push(function(val) {
-                    if (angular.isUndefined(val)) {
-                        val = '';
-                    }
-                    var clean = val.replace(/[^0-9]+/g, '');
-                    if (val !== clean) {
-                        ngModelCtrl.$setViewValue(clean);
-                        ngModelCtrl.$render();
-                    }
-                    return clean;
-                });
-            }
-        };
-    });
+    //             ngModelCtrl.$parsers.push(function(val) {
+    //                 if (angular.isUndefined(val)) {
+    //                     val = '';
+    //                 }
+    //                 var clean = val.replace(/[^0-9]+/g, '');
+    //                 if (val !== clean) {
+    //                     ngModelCtrl.$setViewValue(clean);
+    //                     ngModelCtrl.$render();
+    //                 }
+    //                 return clean;
+    //             });
+    //         }
+    //     };
+    // });

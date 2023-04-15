@@ -1,23 +1,19 @@
 angular.module('todoApp', [])
 .controller('TodoCtrl', function($scope) {
   $scope.todos = [
-    { text: 'Task 1', completed: false, created: Date.now() },
-    { text: 'Task 2', completed: false, created: Date.now() },
-    { text: 'Task 3', completed: false, created: Date.now() }
+    { text: 'Task 1', created: Date.now() },
+    { text: 'Task 2', created: Date.now() },
+    { text: 'Task 3', created: Date.now() }
   ];
 
   $scope.addTodo = function() {
-    $scope.todos.push({ text: $scope.newTodo, completed: false, created: Date.now() });
+    $scope.todos.push({ text: $scope.newTodo, created: Date.now() });
     $scope.newTodo = '';
   };
 
   $scope.remove = function(todo) {
     var index = $scope.todos.indexOf(todo);
     $scope.todos.splice(index, 1);
-  };
-
-  $scope.complete = function(todo) {
-    todo.completed = !todo.completed;
   };
 })
 .directive('myTodoCreatedTime', function() {

@@ -13,8 +13,7 @@
     <button type="submit">+</button>
   </form>
   <ul>
-    <li ng-repeat="todo in todos" ng-class="{ completed: todo.completed }">
-      <input type="checkbox" ng-model="todo.completed" ng-click="complete(todo)">
+    <li ng-repeat="todo in todos">
       <span>{{ todo.text }}</span>
       <my-todo-created-time created-time="todo.created"></my-todo-created-time>
       <button ng-click="remove(todo)">-</button>
