@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <!-- <li><a href="/about">About</a></li> -->
+        <li><a href="/contact">Contact</a></li>
+        <!-- <li><a href="/about">Skills</a></li> -->
+        <li><a href="/resume">Resume</a></li>
+      </ul>
+    </nav>
+    <h1>Welcome to my portfolio!</h1>
+    <img src="{{ url_for('static', filename='vaibhav_pic.jpeg') }}" alt="My Photo">
+   <b> <p>Hi, my name is Vaibhav Kambar and I'm a web developer.</p>
+   <p>I'm a 3rd year IT student at VESIT Chembur. Seeking a role to
+enhance my technical knowledge.</p> </b>
+
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <h1>Welcome to my portfolio!</h1>
+    <p>Here you can see my work and learn more about me.</p>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </body>
+</html> -->

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Resume</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>My Resume</h1>
+    <p>Click the button below to download my resume:</p>
+    <form action="/download_resume" method="post">
+        <button type="submit" name="download" class="resume-btn">Download Resume</button>
+    </form>
+  </body>
+</html>
